@@ -10,11 +10,17 @@ import { MoviesService } from '../movies.service';
 export class MoviesComponent implements OnInit {
   searchResponse?: SearchResponse;
 
+  searchQuery = "";
+
   constructor(private ms: MoviesService) {
 
   }
 
   ngOnInit(): void {
-    this.ms.search("batman").subscribe(sr => this.searchResponse = sr);
+
+  }
+
+  cerca() {
+    this.ms.search(this.searchQuery).subscribe(sr => this.searchResponse = sr);
   }
 }
