@@ -1,3 +1,13 @@
 <div *ngFor="let p of prodotti">
   {{p.nome}}
 </div>
+<hr>
+<form (ngSubmit)="salva()">
+  <input class="form-control" type="text" name="nome" [(ngModel)]="prodotto.nome" placeholder="Nome">
+  <input class="form-control" type="text" name="descrizione" [(ngModel)]="prodotto.descrizione"
+    placeholder="Descrizione">
+  <input class="form-control" type="number" name="prezzo" [(ngModel)]="prodotto.prezzo" placeholder="Prezzo">
+  <input class="form-check-input" type="checkbox" name="inStock" [(ngModel)]="prodotto.inStock">
+  <br>
+  <button class="btn btn-primary" type="submit">SALVA</button>
+</form>

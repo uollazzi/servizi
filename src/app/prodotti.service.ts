@@ -1,42 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Prodotto } from './models/prodotto';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdottiService {
+  private apiBaseURL = "http://localhost:3000/prodotti/";
 
-  private prodotti: Prodotto[] = [
-    {
-      id: 1,
-      nome: "Bicicletta",
-      descrizione: "Cambio Shimano 18 velocità",
-      prezzo: 200,
-      inStock: true
-    },
-    {
-      id: 2,
-      nome: "Lavastoviglie",
-      descrizione: "Silenziosissima",
-      prezzo: 400,
-      inStock: true
-    },
-    {
-      id: 3,
-      nome: "LEGO La Morte Nera",
-      descrizione: "8000 pezzi piccoli",
-      prezzo: 300,
-      inStock: false
-    }
-  ]
-
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
 
   getProdotti(): Observable<Prodotto[]> {
-    const prodotti = of(this.prodotti);
-    return prodotti;
+    return this.http.get<Prodotto[]>(this.apiBaseURL);
+  }
+
+  // CRUD (create, update, read, delete)
+  create(prodotto: Prodotto) {
+    return this.http.post(this.apiBaseURL, prodotto);
   }
 }
