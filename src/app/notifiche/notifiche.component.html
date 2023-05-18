@@ -1,0 +1,12 @@
+<h3>Notifiche</h3>
+<div *ngIf="notificheService.notifiche.length > 0">
+  <button class="btn btn-primary" (click)="notificheService.svuota()">X</button>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let n of notificheService.notifiche">
+      {{n}}
+    </li>
+  </ul>
+</div>
+<div *ngIf="notificheService.notifiche.length == 0">
+  Non ci sono notifiche
+</div>

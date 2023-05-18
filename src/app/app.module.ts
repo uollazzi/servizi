@@ -9,6 +9,7 @@ import { ProdottiGalleryComponent } from './prodotti-gallery/prodotti-gallery.co
 import { ArticoliListComponent } from './articoli-list/articoli-list.component';
 import { ArticoloDetailComponent } from './articolo-detail/articolo-detail.component';
 import { MoviesComponent } from './movies/movies.component';
+import { NotificheComponent } from './notifiche/notifiche.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MoviesComponent } from './movies/movies.component';
     ProdottiGalleryComponent,
     ArticoliListComponent,
     ArticoloDetailComponent,
-    MoviesComponent
+    MoviesComponent,
+    NotificheComponent
   ],
   imports: [
     BrowserModule,

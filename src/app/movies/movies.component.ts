@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchResponse } from '../models/movies';
 import { MoviesService } from '../movies.service';
+import { NotificheService } from '../notifiche.service';
 
 @Component({
   selector: 'app-movies',
@@ -12,8 +13,9 @@ export class MoviesComponent implements OnInit {
 
   searchQuery = "";
 
-  constructor(private ms: MoviesService) {
-
+  constructor(
+    private ms: MoviesService,
+    private notificheService: NotificheService) {
   }
 
   ngOnInit(): void {
@@ -21,6 +23,14 @@ export class MoviesComponent implements OnInit {
   }
 
   cerca() {
-    this.ms.search(this.searchQuery).subscribe(sr => this.searchResponse = sr);
+    this.notificheService.aggiungi(`Ricerca eseguita con parametro: ${this.searchQuery}`);
+
+    this.ms.search(this.searchQuery).subscribe(sr => {
+
+      this.notificheService
+        .aggiungi(`La ricerca eseguita con parametro ${this.searchQuery} ha restituito ${sr.totalResults} risultati.`);
+
+      this.searchResponse = sr;
+    });
   }
 }
