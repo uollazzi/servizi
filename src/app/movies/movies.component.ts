@@ -11,7 +11,8 @@ import { NotificheService } from '../notifiche.service';
 export class MoviesComponent implements OnInit {
   searchResponse?: SearchResponse;
 
-  searchQuery = "";
+  searchQuery = "batman";
+  typeQuery = "movie";
 
   constructor(
     private ms: MoviesService,
@@ -25,7 +26,7 @@ export class MoviesComponent implements OnInit {
   cerca() {
     this.notificheService.aggiungi(`Ricerca eseguita con parametro: ${this.searchQuery}`);
 
-    this.ms.search(this.searchQuery).subscribe(sr => {
+    this.ms.search(this.searchQuery, this.typeQuery).subscribe(sr => {
 
       this.notificheService
         .aggiungi(`La ricerca eseguita con parametro ${this.searchQuery} ha restituito ${sr.totalResults} risultati.`);

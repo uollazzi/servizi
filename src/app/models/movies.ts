@@ -2,6 +2,7 @@ export interface SearchResponse {
   Search: MoviePreview[]
   totalResults: string
   Response: string
+  Error?: string
 }
 
 export interface MoviePreview {
@@ -38,6 +39,7 @@ export interface Movie {
   Production: string
   Website: string
   Response: string
+  Error?: string
 }
 
 export interface Rating {

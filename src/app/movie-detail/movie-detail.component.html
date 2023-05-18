@@ -1,0 +1,15 @@
+<div *ngIf="movie">
+  <div *ngIf="movie.Response == 'True'">
+    <h1>{{movie.Title}}</h1>
+    <h3>{{movie.Year}}</h3>
+    <hr>
+    <app-rating *ngFor="let r of movie.Ratings" [rating]="r"></app-rating>
+  </div>
+  <div *ngIf="movie.Response == 'False'" class="text-bg-danger">
+    {{movie.Error}}
+  </div>
+
+</div>
+<div *ngIf="!movie" class="text-danger">
+  {{error.error.Error}}
+</div>

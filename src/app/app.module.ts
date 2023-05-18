@@ -10,6 +10,9 @@ import { ArticoliListComponent } from './articoli-list/articoli-list.component';
 import { ArticoloDetailComponent } from './articolo-detail/articolo-detail.component';
 import { MoviesComponent } from './movies/movies.component';
 import { NotificheComponent } from './notifiche/notifiche.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { NotificheComponent } from './notifiche/notifiche.component';
     ArticoliListComponent,
     ArticoloDetailComponent,
     MoviesComponent,
-    NotificheComponent
+    NotificheComponent,
+    NavbarComponent,
+    MovieDetailComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
