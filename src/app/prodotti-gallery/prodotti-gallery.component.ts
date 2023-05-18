@@ -38,4 +38,10 @@ export class ProdottiGalleryComponent implements OnInit {
       this.caricaProdotti();
     });
   }
+
+  rimuovimi(id: number) {
+    this.prodottiService.delete(id).subscribe(_ => {
+      this.caricaProdotti();
+    });
+  }
 }

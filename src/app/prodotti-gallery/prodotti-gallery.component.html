@@ -1,5 +1,5 @@
 <div *ngFor="let p of prodotti">
-  {{p.nome}}
+  <button type="button" class="btn btn-danger" (click)="rimuovimi(p.id!)">{{p.nome}}</button>
 </div>
 <hr>
 <form (ngSubmit)="salva()">

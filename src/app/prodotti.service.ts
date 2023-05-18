@@ -21,4 +21,8 @@ export class ProdottiService {
   create(prodotto: Prodotto) {
     return this.http.post(this.apiBaseURL, prodotto);
   }
+
+  delete(id: number) {
+    return this.http.delete(this.apiBaseURL + id);
+  }
 }
